@@ -17,7 +17,12 @@ Route::get('/', function () {
 });
 
 
-Route::get('/laravel',function(){
+Route::get('/laravel','TestController@index');
+
+Route::get('id/{id}/{user}','TestController@show');
+
+Route::resource('posts','ResController');
+/*Route::get('/laravel',function(){
     return 'laravel';
 });
 
@@ -36,5 +41,5 @@ Route::prefix('user')->group(function(){
     Route::get('/iqtech',function(){
         return 'iqtech';
     })->name('iqtech');
-});
+});*/
 
