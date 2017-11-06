@@ -12,16 +12,18 @@
 */
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PagesController@index');
+Route::get('/about', 'PagesController@about');
+Route::get('/get/{id}', 'PagesController@get');
 
 
+/*
 Route::get('/laravel','TestController@index');
 
 Route::get('id/{id}/{user}','TestController@show');
 
 Route::resource('posts','ResController');
+*/
 /*Route::get('/laravel',function(){
     return 'laravel';
 });
