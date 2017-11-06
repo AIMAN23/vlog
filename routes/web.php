@@ -15,3 +15,26 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/laravel',function(){
+    return 'laravel';
+});
+
+
+Route::get('id/{id}/{user?}',function($id,$user = 'null'){
+   return 'Id : '.$id . 'User : '.$user;
+})->where('id','[0-9]+')->name('testid');
+
+Route::prefix('user')->group(function(){
+    Route::get('/laravel',function(){
+        return 'laravel';
+    })->name('laravel');
+    Route::get('/osama',function(){
+        return 'osama';
+    })->name('osama');
+    Route::get('/iqtech',function(){
+        return 'iqtech';
+    })->name('iqtech');
+});
+
