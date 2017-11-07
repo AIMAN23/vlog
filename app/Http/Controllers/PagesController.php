@@ -22,4 +22,10 @@ class PagesController extends Controller
 
         );
     }
+    public function services(){
+        return view('sections.services');
+    }
+    public function contact(){
+        return view('sections.contact');
+    }
 }
