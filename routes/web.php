@@ -18,6 +18,11 @@ Route::get('/get/{id}', 'PagesController@get');
 
 Route::get('/services', 'PagesController@services');
 Route::get('/contact', 'PagesController@contact');
+
+Route::get('/get','ReqController@viewRequest');
+Route::get('/login','ReqController@showLoginForm');
+Route::post('/login','ReqController@login');
+
 /*
 Route::get('/laravel','TestController@index');
 
