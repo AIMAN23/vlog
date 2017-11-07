@@ -13,6 +13,12 @@
 
 
 Route::get('/', 'PagesController@index');
+
+Route::get('/login','RedirectController@showLogin');
+Route::post('/login','RedirectController@login');
+Route::get('/loginok','RedirectController@ifLoginok')->name('login.ok');
+
+/*
 Route::get('/about', 'PagesController@about');
 Route::get('/get/{id}', 'PagesController@get');
 
@@ -22,7 +28,7 @@ Route::get('/contact', 'PagesController@contact');
 Route::get('/get','ReqController@viewRequest');
 Route::get('/login','ReqController@showLoginForm');
 Route::post('/login','ReqController@login');
-
+*/
 /*
 Route::get('/laravel','TestController@index');
 
