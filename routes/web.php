@@ -14,10 +14,15 @@
 
 Route::get('/', 'PagesController@index');
 
+Route::get('/getcookie','CookiesController@getCookie');
+Route::get('/setcookie','CookiesController@setCookie');
+
+/*
 Route::get('/getsession','SessionController@getSession');
 Route::get('/setsession','SessionController@setSession');
 Route::get('/delsession','SessionController@deleteSession');
 Route::get('/flash','SessionController@flashSession')->name('session.ok');
+*/
 /*
 Route::get('/login','RedirectController@showLogin');
 Route::post('/login','RedirectController@login');
