@@ -15,7 +15,8 @@
 Route::get('/', 'PagesController@index');
 
 Route::get('/lang/{lang}','LangController@index');
-
+Route::get('/register','ValidateController@index');
+Route::post('/register','ValidateController@save')->name('reg');
 /*
 Route::get('/getcookie','CookiesController@getCookie');
 Route::get('/setcookie','CookiesController@setCookie');
