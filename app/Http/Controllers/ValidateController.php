@@ -16,8 +16,20 @@ class ValidateController extends Controller
         $this->validate($request,[
             'username'=>'required',
             'password'=>'required|min:6',
-            'email'=>'required|email'
+            'email'=>'required|email',
+            'image'=>'nullable|image'
+
         ],$messages);
-        return $request->all();
+
+        if ($request->hasFile('image')){
+            $fileObject  = $request->file('image');
+            $extension = $fileObject->getClientOriginalExtension();
+            $mimeType = $fileObject->getClientMimeType();
+            $fileName = $fileObject->getClientOriginalName();
+            $size = $fileObject->getClientSize();
+
+            $path = $fileObject->storeAs('avatar',time().'.'.$extension);
+        }
+        return $path;
     }
 }
