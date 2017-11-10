@@ -1,17 +1,8 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Register</title>
-</head>
-<body>
-@if ($errors->any())
-<ul>
-    @foreach($errors->all() as $error)
-        <li>{{$error}}</li>
-        @endforeach
-</ul>
-    @endif
+@extends('layout.main')
+@section('title','Contact Page')
+
+@section('content')
+@include('layout.errmsg')
 <form action="{{route('reg')}}" method="post" role="form" enctype="multipart/form-data">
     {{csrf_field()}}
     <legend>Register</legend>
@@ -39,5 +30,4 @@
 
     <button type="submit" class="btn btn-primary">Register</button>
 </form>
-</body>
-</html>
+@endsection

@@ -14,6 +14,8 @@
 
 Route::get('/', 'PagesController@index');
 
+Route::resource('/comments','CommentController');
+
 Route::get('/lang/{lang}','LangController@index');
 Route::get('/register','ValidateController@index');
 Route::post('/register','ValidateController@save')->name('reg');
