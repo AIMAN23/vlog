@@ -14,7 +14,8 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+        $comments = Comment::latest()->paginate(2);
+        return view('comments.index')->with('comments',$comments);
     }
 
     /**
@@ -57,7 +58,9 @@ class CommentController extends Controller
      */
     public function show($id)
     {
-        //
+        //$comment = Comment::where('id',$id)->get();
+        $comment = Comment::find($id);
+        return view('comments.show')->with('comment',$comment);
     }
 
     /**
