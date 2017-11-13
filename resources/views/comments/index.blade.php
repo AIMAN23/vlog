@@ -18,7 +18,13 @@
                     </div>
                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                         {{$comment->name}}
-                        <a href="{{route('comments.edit',$comment->id)}}" class="btn btn-info pull-right">Edit</a>
+                        <a href="{{route('comments.edit',$comment->id)}}" class="btn btn-info pull-right">Edit</a><br/>
+                        <form method="post" action="{{route('comments.destroy',$comment->id)}}">
+                            {{csrf_field()}}
+                            {{method_field('DELETE')}}
+                            <input type="hidden" name="_method" value="DELETE" />
+                            <button class="btn btn-danger">Delete</button>
+                        </form>
                     </div>
                 </div>
                 <div class="row">
