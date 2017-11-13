@@ -2,7 +2,12 @@
 @section('title','Comments')
 
 @section('content')
-
+@if (session('msg'))
+    <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <strong>OK</strong> {{session('msg')}}
+    </div>
+@endif
     @if (count($comments) > 0)
         {{$comments->links()}}
         @foreach($comments as $comment)
@@ -13,6 +18,7 @@
                     </div>
                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                         {{$comment->name}}
+                        <a href="{{route('comments.edit',$comment->id)}}" class="btn btn-info pull-right">Edit</a>
                     </div>
                 </div>
                 <div class="row">

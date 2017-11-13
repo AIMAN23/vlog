@@ -71,7 +71,8 @@ class CommentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $comment = Comment::find($id);
+        return view('comments.edit')->with('comment',$comment);
     }
 
     /**
@@ -83,7 +84,21 @@ class CommentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'name'=>'required',
+            'comment'=>'required'
+        ]);
+
+        $comment = Comment::find($id);
+        $comment->name = $request->input('name');
+        $comment->comment = $request->input('comment');
+        $comment->save();
+
+        /*Comment::where('id',$id)->update([
+            'name'=>$request->input('name'),
+            'comment'=>$request->input('comment')
+        ]);*/
+        return redirect(route('comments.index'))->with('msg','Edited');
     }
 
     /**
