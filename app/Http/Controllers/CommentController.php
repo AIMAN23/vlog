@@ -8,6 +8,15 @@ use App\Comment;
 class CommentController extends Controller
 {
     /**
+     * CommentController constructor.
+     */
+    public function __construct()
+    {
+        $this->middleware('admin')->except(['index','show']);
+    }
+
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -37,12 +46,11 @@ class CommentController extends Controller
     public function store(Request $request)
     {
        $this->validate($request,[
-           'name'=>'required',
            'comment'=>'required'
        ]);
 
         $c = new Comment();
-        $c->name = $request->input('name');
+        $c->name = auth()->user()->name;
         $c->comment = $request->input('comment');
         $c->save();
 
