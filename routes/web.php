@@ -75,3 +75,7 @@ Route::prefix('user')->group(function(){
     })->name('iqtech');
 });*/
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
