@@ -3,7 +3,14 @@
 
 @section('content')
     @if (count($user) > 0)
-            {{$user->name}}
+           <h1>{{$user->name}}</h1>
+
+           Roles :
+           <ul>
+           @foreach($user->roles as $role)
+                       <li>{{$role->name}}</li>
+                       @endforeach
+           </ul>
        @foreach($user->comments as $comment)
            <div class="well">
                <div class="row">
