@@ -21,7 +21,9 @@
                        {{$comment->created_at}}
                     </div>
                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                        {{$comment->user->name}}
+                       <a href="{{route('profile.index',$comment->user_id)}}">
+                           {{$comment->user->name}}
+                       </a>
                     </div>
                 </div>
                 <div class="row">

@@ -13,6 +13,7 @@
 
 
 Route::get('/', 'PagesController@index');
+Route::get('/profile/{id}','ProfileController@index')->name('profile.index');
 
 Route::resource('/comments','CommentController');
 
