@@ -19,6 +19,6 @@ class AdminMiddleware
         if (!Auth::guest() && (Auth::user()->isadmin == 1) ){
             return $next($request);
         }
-        return redirect(route('comment.index'));
+        return redirect(route('comments.index'));
     }
 }

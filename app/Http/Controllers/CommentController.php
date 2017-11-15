@@ -12,7 +12,7 @@ class CommentController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('admin')->except(['index','show']);
+        $this->middleware('auth')->except(['index','show']);
     }
 
 
@@ -23,7 +23,7 @@ class CommentController extends Controller
      */
     public function index()
     {
-        $comments = Comment::latest()->paginate(2);
+        $comments = Comment::latest()->paginate(5);
         return view('comments.index')->with('comments',$comments);
     }
 
@@ -50,7 +50,7 @@ class CommentController extends Controller
        ]);
 
         $c = new Comment();
-        $c->name = auth()->user()->name;
+        $c->user_id = auth()->user()->id;
         $c->comment = $request->input('comment');
         $c->save();
 
