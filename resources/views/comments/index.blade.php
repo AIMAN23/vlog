@@ -32,7 +32,7 @@
                             {{$comment->comment}}
                         </a>
 <hr>
-                        @if (!Auth::guest() && Auth::user()->isadmin == 1)
+                        @if (!Auth::guest() && Auth::user()->hasAnyRole(['Admin','Moderator']))
                             <a href="{{route('comments.edit',$comment->id)}}" class="btn btn-info pull-right">Edit</a><br/>
                             <form method="post" action="{{route('comments.destroy',$comment->id)}}">
                                 {{csrf_field()}}
