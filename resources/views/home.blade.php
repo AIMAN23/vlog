@@ -15,6 +15,13 @@
                     @endif
 
                    Hello {{Auth::user()->name}}
+                    <p>
+                        {{ clean('This thext has to be cleaned > by this # ') }}
+
+                    </p>
+                    <p>
+                        {{ sum(5,10) }}
+                    </p>
                 </div>
             </div>
         </div>
